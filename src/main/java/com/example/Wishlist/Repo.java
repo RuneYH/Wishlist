@@ -57,7 +57,7 @@ public class Repo {
         return wish;
     }
 
-    // Delete a wish
+    // Delete a wish (yet to be implemented)
     public void deleteWish(Long id) {
         Wish wishToDelete = this.getWish(id);
         if (wishToDelete != null) {
