@@ -17,7 +17,7 @@ public class Repo {
 
         // Pre-fill dummy data can be removed later
         for (int i = 1; i <= 15; i++) {
-            wishes.add(new Wish(new Long(i), "Wish " + i, 200 + i, "https://google.com","",new Long(0)));
+            wishes.add(new Wish(new Long(i), "Wish " + i, "This is a really nice gift that I would appreciate a lot.", 200 + i, "https://google.com","",new Long(0)));
         }
     }
 
@@ -46,12 +46,13 @@ public class Repo {
 
     // Edit a wish
     public Wish editWish(Wish wish) {
-        Wish wishToEdit = this.getWish(wish.getId()); // Must be solved
+        Wish wishToEdit = this.getWish(wish.getId());
         if (wishToEdit != null) {
             wishToEdit.setName(wish.getName());
             wishToEdit.setPrice(wish.getPrice());
             wishToEdit.setLink(wish.getLink());
             wishToEdit.setImg(wish.getImg());
+            wishToEdit.setDescription(wish.getDescription());
         }
         return wish;
     }

@@ -3,6 +3,7 @@ package com.example.Wishlist;
 public class Wish {
     private Long id; // ID of wish
     private String name;
+    private String description;
     private double price;
     private String link;
     private String img;
@@ -11,9 +12,10 @@ public class Wish {
     public Wish() { // --- Why do we have an empty constructor? ---
     }
 
-    public Wish(Long id, String name, double price, String link, String img, Long listId) {
+    public Wish(Long id, String name, String description, double price, String link, String img, Long listId) {
         this.id = id;
         this.name = name;
+        this.description = description;
         this.price = price;
         this.link = link;
         this.img = img;
@@ -38,6 +40,14 @@ public class Wish {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public double getPrice() {

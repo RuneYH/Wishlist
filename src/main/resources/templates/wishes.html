@@ -17,12 +17,16 @@
     <table>
         <tr>
             <th>Wish</th>
+            <th> - </th>
             <th>Price</th>
+            <th> - </th>
             <th>Link</th>
         </tr>
         <tr th:each="wish : ${wishes}">
             <th><a th:href="'/wish/' + ${currentPage} + '/' + ${wish.id}" th:text="${wish.name}"></a></th>
-            <th th:text="${wish.price}"></th>
+            <th> - </th>
+            <th th:text="${wish.price} + '0 DKK'"></th>
+            <th> - </th>
             <th th:text="${wish.link}"></th>
         </tr>
     </table>
