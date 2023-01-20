@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Wishlist</title>
+</head>
+<body>
+    <h1>Wish</h1>
+
+    <form action="/save" th:object="${wish}" method="POST">
+        Wish: <input type="text" th:field="*{name}"/>
+        Price: <input type="text" th:field="*{price}"/>
+        Link: <input type="text" th:field="*{link}"/>
+        Image: <input type="text" th:field="*{img}"/>
+        <input th:if="${wish.id != null}" type="hidden" th:field="*{id}"/>
+        <input type="submit" value="Save wish">
+    </form>
+
+</body>
+</html>
