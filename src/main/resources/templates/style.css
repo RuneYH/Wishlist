@@ -1,6 +1,8 @@
 body {
     font-size: 18px;
     color: navy;
+    background-image: url(winter.jpg);
+    background-color: white;
 }
 
 form {
