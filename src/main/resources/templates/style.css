@@ -2,7 +2,7 @@ body {
     font-size: 18px;
     color: navy;
     background-image: url(winter.jpg);
-    background-color: white;
+    text-align: center;
 }
 
 form {
@@ -17,6 +17,9 @@ td, table {
     #border-color: blue;
     padding:10px;
     border: 1px blue dashed;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 img {
