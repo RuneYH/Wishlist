@@ -16,7 +16,7 @@ public class Repo {
         wishes = new ArrayList<>(); // Holds all the wishes
 
         // Pre-fill dummy data can be removed later
-        for (int i = 1; i <= 9; i++) {
+        for (int i = 1; i <= 15; i++) {
             wishes.add(new Wish(new Long(i), "Wish " + i, 200 + i, "https://google.com","",new Long(0)));
         }
     }
@@ -24,7 +24,7 @@ public class Repo {
     // Get one wish
     public Wish getWish(Long id) {
         for (Wish wish : wishes) {
-            if (wish.getListId().equals(id)) {
+            if (wish.getId().equals(id)) {
                 return wish;
             }
         }

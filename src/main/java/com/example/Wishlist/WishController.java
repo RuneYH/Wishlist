@@ -30,7 +30,7 @@ public class WishController {
         return "wishes";
     }
 
-    @GetMapping("/book/{page}/{id}")
+    @GetMapping("/wish/{page}/{id}")
     public String wish(Model model, @PathVariable Integer page, @PathVariable Long id) {
         Wish wish = repo.getWish(id);
         model.addAttribute("page", page);

@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8"></meta>
     <title>Wish</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" th:href="'/style.css'" href="../static/style.css">
 </head>
 <body>
 <a href="/">Home</a>
 
     <h1>Wish</h1>
     <div>
-        <p><a th:href="'/?page=' + ${page}">Back to wishes</a></p>
+        <p><a th:href="'/?page=' + ${page}">Back to wishlist</a></p>
     </div>
     <div>
-        <p><a th:href="'/edit/' + ${wish.id}">Edit wish</a></p>
+        <p><a th:href="'/edit/' + ${wish.getId}">Edit wish</a></p>
     </div>
     <table>
         <tr>
             <th>Wish</th>
-            <th th:text="${wish.name}"></th>
+            <th th:text="${wish.getName}"></th>
         </tr>
         <tr>
             <th>Price</th>
-            <th th:text="${wish.price}"></th>
+            <th th:text="${wish.getPrice}"></th>
         </tr>
         <tr>
             <th>Link</th>
-            <th th:text="${wish.link}"></th>
+            <th th:text="${wish.getLink}"></th>
         </tr>
         <tr>
             <th>Image</th>
-            <th th:text="${wish.img}"></th>
+            <th th:text="${wish.getImg}"></th>
         </tr>
     </table>
 
