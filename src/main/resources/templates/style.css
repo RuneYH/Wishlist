@@ -14,9 +14,9 @@ form {
 td, table {
     #border-style: dashed;
     #border-width: 1px;
-    #border-color: red;
+    #border-color: blue;
     padding:10px;
-    border: 1px red dashed;
+    border: 1px blue dashed;
 }
 
 img {
@@ -34,11 +34,11 @@ img {
 }
 
 .tableHeader td {
-    border-color: green;
+    border-color: grey;
 }
 
 a:hover {
-    color: red;
+    color: blue;
 }
 
 #contact {
