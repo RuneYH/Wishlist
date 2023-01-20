@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"></meta>
-    <title>Add New Wish</title>
+    <title>uWish - Add/Edit Wish</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a href="/">Home</a>
 
-    <h1>Add New Wish</h1>
+    <h1>Add/Edit Wish</h1>
 
     <form action="/save" th:object="${wish}" method="POST">
         <div>Wish: <input type="text" th:field="*{name}"/></div>
