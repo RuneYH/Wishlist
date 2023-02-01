@@ -1,29 +1,32 @@
 package com.example.Wishlist;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Wish {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // ID of wish
     private String name;
     private String description;
-    private double price;
+    private Double price;
     private String link;
     private String img;
-    private Long listId; // ID of wishlist
 
     public Wish() { // --- Why do we have an empty constructor? ---
     }
 
-    public Wish(Long id, String name, String description, double price, String link, String img, Long listId) {
+    public Wish(Long id, String name, String description, Double price, String link, String img) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.link = link;
         this.img = img;
-        this.listId = listId;
-    }
 
-    public boolean isNew(){
-        return this.id == null;
     }
 
     public Long getId() {
@@ -50,11 +53,11 @@ public class Wish {
         this.description = description;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -72,13 +75,5 @@ public class Wish {
 
     public void setImg(String img) {
         this.img = img;
-    }
-
-    public Long getListId() {
-        return listId;
-    }
-
-    public void setListId(Long listId) {
-        this.listId = listId;
     }
 }

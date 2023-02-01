@@ -17,7 +17,7 @@ public class Repo {
 
         // Pre-fill dummy data can be removed later
         for (int i = 1; i <= 15; i++) {
-            wishes.add(new Wish(new Long(i), "Wish " + i, "This is a really nice gift that I would appreciate a lot.", 200 + i, "https://google.com","",new Long(0)));
+            wishes.add(new Wish(new Long(i), "Wish " + i, "This is a really nice gift that I would appreciate a lot.", new Double(200 + i), "https://google.com",""));
         }
     }
 
@@ -37,12 +37,12 @@ public class Repo {
     }
 
     // Add a wish
-    public Wish addWish(Wish wish) {
+    /*public Wish addWish(Wish wish) {
         Wish lastWish = wishes.get(wishes.size()-1);
         wish.setListId(lastWish.getListId()+1); // set an id on the new book, should be unique, will be done by the database in future exercises
         wishes.add(wish);
         return wish;
-    }
+    }*/
 
     // Edit a wish
     public Wish editWish(Wish wish) {

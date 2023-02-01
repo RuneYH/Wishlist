@@ -12,7 +12,7 @@ public class WishController {
 
     private static final int PAGE_SIZE = 10; // Shows only 10 wishes per page
     @Autowired
-    private Repo repo;
+    private WishRepo repo;
 
     @GetMapping("/") // Wishlist
     public String wishes(Model model, @RequestParam(value="page", required=false, defaultValue="1") int page) {
@@ -32,7 +32,7 @@ public class WishController {
 
     @GetMapping("/wish/{page}/{id}")
     public String wish(Model model, @PathVariable Integer page, @PathVariable Long id) {
-        Wish wish = repo.getWish(id);
+        Wish wish = repo.findById(id).orElse(null);
         model.addAttribute("page", page);
         model.addAttribute("wish", wish);
 
@@ -48,7 +48,7 @@ public class WishController {
     }
 
     private List<Wish> getPage(int page, int pageSize) {
-        List<Wish> wishes = repo.getWishes();
+        List<Wish> wishes = (List<Wish>) repo.findAll();
         int from = Math.max(0,page*pageSize);
         int to = Math.min(wishes.size(),(page+1)*pageSize);
 
@@ -56,7 +56,7 @@ public class WishController {
     }
 
     private int numberOfPages(int pageSize) {
-        List<Wish> wishes = repo.getWishes();
+        List<Wish> wishes = (List<Wish>) repo.findAll();
         return (int)Math.ceil(new Double(wishes.size()) / pageSize);
     }
 
@@ -68,18 +68,13 @@ public class WishController {
 
     @PostMapping("/save")
     public String set(@ModelAttribute Wish wish) {
-        if (wish.isNew()) { // Refering to a method in Wish class
-            repo.addWish(wish);
-        }
-        else {
-            repo.editWish(wish);
-        }
+        repo.save(wish);
         return "redirect:/";
     }
 
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable Long id) {
-        Wish wish = repo.getWish(id);
+        Wish wish = repo.findById(id).get();
         model.addAttribute(wish);
         return "form";
     }
