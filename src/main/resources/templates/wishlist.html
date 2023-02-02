@@ -7,43 +7,48 @@
     <link rel="stylesheet" th:href="'/style.css'" href="../static/style.css">
 </head>
 <body>
-<a href="/uwish/">Home</a>
+<a href="/uwish/wishlist">Home</a>
+
+<div>
+    <p th:text="${'Logged in as: ' + #httpServletRequest.remoteUser}"></p>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/>
+    </form>
+</div>
 
 <h1>Wishlist</h1>
 
-    <!--<p><a href="/customers">Customers</a></p>-->
-
-    <a href="/uwish/add">Add New Wish</a>
+    <a href="/uwish/addwish">Add New Wish</a>
 
 <!-- Wishlist table -->
     <table>
         </tr>
-        <tr th:each="wish : ${wishes}"> <!-- For each loop creates wishlist by iterating through wishes -->
+        <tr th:each="wish : ${wishlist}"> <!-- For each loop creates wishlist by iterating through wishes -->
             <th><a th:href="'/uwish/wish/' + ${currentPage} + '/' + ${wish.id}" th:text="${wish.name}"></a></th>
             <th>  ~  </th>
             <th th:text="${wish.price} + '0 DKK'"></th>
             <th>  ~  </th>
             <th><a th:href="${wish.link}">Buy here</a></th>
             <th>  ~  </th>
-            <th><a th:href="'/uwish/edit/' + ${wish.getId}">Edit</a></th>
+            <th><a th:href="'/uwish/editwish/' + ${wish.getId}">Edit</a></th>
             <th>  ~  </th>
-            <th><a th:href="'/uwish/delete/' + ${wish.getId}">Delete</a></th>
+            <th><a th:href="'/uwish/deletewish/' + ${wish.getId}">Delete</a></th>
         </tr>
     </table>
 
 <!-- Page turn -->
     <div>
         <span th:if="${showPrev}">
-            <a th:href="'/uwish/?page=' + ${currentPage-1}" th:text="Previous"></a>
+            <a th:href="'/uwish/wishlist?page=' + ${currentPage-1}" th:text="Previous"></a>
         </span>
 
         <span th:each="page : ${pages}">
             <span th:if="${currentPage == page}" th:text="${page}"></span>
-            <a th:if="${currentPage != page}" th:href="'/uwish/?page=' + ${page}" th:text="${page}"></a>
+            <a th:if="${currentPage != page}" th:href="'/uwish/wishlist?page=' + ${page}" th:text="${page}"></a>
         </span>
 
         <span th:if="${showNext}">
-            <a th:href="'/uwish/?page=' + ${currentPage+1}" th:text="Next"></a>
+            <a th:href="'/uwish/wishlist?page=' + ${currentPage+1}" th:text="Next"></a>
         </span>
     </div>
 

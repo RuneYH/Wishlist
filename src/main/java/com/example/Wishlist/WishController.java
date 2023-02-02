@@ -14,20 +14,20 @@ public class WishController {
     @Autowired
     private WishRepo wishRepo;
 
-    @GetMapping("/uwish/") // Wishlist
-    public String wishes(Model model, @RequestParam(value="page", required=false, defaultValue="1") int page) {
+    @GetMapping("/uwish/wishlist") // Wishlist
+    public String wishlist(Model model, @RequestParam(value="page", required=false, defaultValue="1") int page) {
 
-        List<Wish> wishes = getPage(page-1, PAGE_SIZE);
+        List<Wish> wishlist = getPage(page-1, PAGE_SIZE);
         int pageCount = numberOfPages(PAGE_SIZE);
         int[] pages = toArray(pageCount);
 
-        model.addAttribute("wishes", wishes);
+        model.addAttribute("wishlist", wishlist);
         model.addAttribute("pages", pages);
         model.addAttribute("currentPage", page);
         model.addAttribute("showPrev", page > 1);
         model.addAttribute("showNext", page < pageCount);
 
-        return "wishes";
+        return "wishlist";
     }
 
     @GetMapping("/uwish/wish/{page}/{id}")
@@ -48,40 +48,40 @@ public class WishController {
     }
 
     private List<Wish> getPage(int page, int pageSize) {
-        List<Wish> wishes = (List<Wish>) wishRepo.findAll();
+        List<Wish> wishlist = (List<Wish>) wishRepo.findAll();
         int from = Math.max(0,page*pageSize);
-        int to = Math.min(wishes.size(),(page+1)*pageSize);
+        int to = Math.min(wishlist.size(),(page+1)*pageSize);
 
-        return wishes.subList(from, to);
+        return wishlist.subList(from, to);
     }
 
     private int numberOfPages(int pageSize) {
-        List<Wish> wishes = (List<Wish>) wishRepo.findAll();
-        return (int)Math.ceil(new Double(wishes.size()) / pageSize);
+        List<Wish> wishlist = (List<Wish>) wishRepo.findAll();
+        return (int)Math.ceil(new Double(wishlist.size()) / pageSize);
     }
 
-    @GetMapping("/uwish/add")
+    @GetMapping("/uwish/addwish")
     public String add(Model model) {
         model.addAttribute("wish", new Wish());
         return "add_edit";
     }
 
-    @PostMapping("/uwish/save")
+    @PostMapping("/uwish/savewish")
     public String set(@ModelAttribute Wish wish) {
         wishRepo.save(wish);
         return "redirect:/uwish/";
     }
 
-    @GetMapping("/uwish/edit/{id}")
+    @GetMapping("/uwish/editwish/{id}")
     public String edit(Model model, @PathVariable Long id) {
         Wish wish = wishRepo.findById(id).get();
         model.addAttribute(wish);
         return "add_edit";
     }
 
-    @GetMapping("/uwish/delete/{id}")
+    @GetMapping("/uwish/deletewish/{id}")
     public String delete(@PathVariable("id") Long id) {
         wishRepo.deleteById(id);
-        return "redirect:/uwish/";
+        return "redirect:/uwish/wishlist";
     }
 }

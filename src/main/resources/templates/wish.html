@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="'/style.css'" href="../static/style.css">
 </head>
 <body>
-<a href="/uwish/">Home</a>
+<a href="/uwish/wishlist">Home</a>
 
 <h1 th:text="${wish.getName}"></h1>
 
@@ -31,13 +31,13 @@
 </table>
 
 <div>
-    <p><a th:href="'/uwish/edit/' + ${wish.getId}">Edit</a></p>
+    <p><a th:href="'/uwish/editwish/' + ${wish.getId}">Edit</a></p>
 </div>
 <div>
-    <p><a th:href="'/uwish/delete/' + ${wish.getId}">Delete</a></p>
+    <p><a th:href="'/uwish/deletewish/' + ${wish.getId}">Delete</a></p>
 </div>
 <div>
-    <p><a th:href="'/uwish/?page=' + ${page}">Back to wishlist</a></p>
+    <p><a th:href="'/uwish/wishlist?page=' + ${page}">Back to wishlist</a></p>
 </div>
 
 </body>

@@ -1,19 +1,22 @@
 package com.example.Wishlist;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class User {
+public class User1 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String usn;
     private String psw;
 
-    public User(Long id, String usn, String psw) {
+    public User1() {
+    }
+
+    public User1(Long id, String usn, String psw) {
         this.id = id; // ID of user
         this.usn = usn;
         this.psw = psw;

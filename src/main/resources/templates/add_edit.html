@@ -7,11 +7,11 @@
     <link rel="stylesheet" th:href="'/style.css'" href="../static/style.css">
 </head>
 <body>
-<a href="/uwish/">Home</a>
+<a href="/uwish/wishlist">Home</a>
 
     <h1>Add/Edit Wish</h1>
 
-    <form action="/uwish/save" th:object="${wish}" method="POST">
+    <form action="/uwish/savewish" th:object="${wish}" method="POST">
         <div>Wish: <input type="text" th:field="*{name}"/></div>
         <div>Description: <input type="text" th:field="*{description}"/></div>
         <div>Price: <input type="number" th:field="*{price}"/></div>
