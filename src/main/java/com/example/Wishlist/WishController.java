@@ -78,4 +78,11 @@ public class WishController {
         model.addAttribute(wish);
         return "form";
     }
+
+    // Delete function
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        repo.deleteById(id);
+        return "redirect:/";
+    }
 }

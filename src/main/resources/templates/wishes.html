@@ -14,22 +14,21 @@
 
     <a href="/add">Add New Wish</a>
 
+<!-- Wishlist table -->
     <table>
-        <tr>
-            <th>Wish</th>
-            <th> - </th>
-            <th>Price</th>
-            <th> - </th>
-            <th>Link</th>
         </tr>
-        <tr th:each="wish : ${wishes}">
+        <tr th:each="wish : ${wishes}"> <!-- For each loop creates wishlist by iterating through wishes -->
             <th><a th:href="'/wish/' + ${currentPage} + '/' + ${wish.id}" th:text="${wish.name}"></a></th>
-            <th> - </th>
+            <th>  ~  </th>
             <th th:text="${wish.price} + '0 DKK'"></th>
-            <th> - </th>
-            <th th:text="${wish.link}"></th>
+            <th>  ~  </th>
+            <th><a th:href="${wish.link}">Buy here</a></th>
+            <th>  ~  </th>
+            <th><a th:href="'/delete/' + ${wish.getId}">Delete</a></th>
         </tr>
     </table>
+
+<!-- Page turn -->
     <div>
         <span th:if="${showPrev}">
             <a th:href="'/?page=' + ${currentPage-1}" th:text="Previous"></a>
