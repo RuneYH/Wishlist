@@ -63,7 +63,7 @@ public class WishController {
     @GetMapping("/uwish/addwish")
     public String add(Model model) {
         model.addAttribute("wish", new Wish());
-        return "add_edit";
+        return "addwish_editwish";
     }
 
     @PostMapping("/uwish/savewish")
@@ -76,7 +76,7 @@ public class WishController {
     public String edit(Model model, @PathVariable Long id) {
         Wish wish = wishRepo.findById(id).get();
         model.addAttribute(wish);
-        return "add_edit";
+        return "addwish_editwish";
     }
 
     @GetMapping("/uwish/deletewish/{id}")

@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class UserController {
+public class WisherController {
 
     @Autowired
-    private UserRepo userRepo;
+    private WisherRepo wisherRepo;
 
     @GetMapping("/uwish")
     public String start() {
@@ -20,13 +20,13 @@ public class UserController {
 
     @GetMapping("/uwish/signup")
     public String signup(Model model) {
-        model.addAttribute("user1", new User1());
+        model.addAttribute("wisher", new Wisher());
         return "signup";
     }
 
-    @PostMapping("/uwish/saveuser")
-    public String saveUser(@ModelAttribute User1 user1) {
-        userRepo.save(user1);
+    @PostMapping("/uwish/savewisher")
+    public String saveWisher(@ModelAttribute Wisher wisher) {
+        wisherRepo.save(wisher);
         return "redirect:/uwish/wishlist";
     }
 

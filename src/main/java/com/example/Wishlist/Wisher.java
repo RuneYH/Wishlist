@@ -6,18 +6,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User1 {
+public class Wisher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; // ID of wisher
     private String usn;
     private String psw;
 
-    public User1() {
+    public Wisher() {
     }
 
-    public User1(Long id, String usn, String psw) {
-        this.id = id; // ID of user
+    public Wisher(Long id, String usn, String psw) {
+        this.id = id;
         this.usn = usn;
         this.psw = psw;
     }
