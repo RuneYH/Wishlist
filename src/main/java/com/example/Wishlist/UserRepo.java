@@ -2,6 +2,6 @@ package com.example.Wishlist;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface WishRepo extends CrudRepository<Wish, Long> {
-
+public interface UserRepo extends CrudRepository<User, Long> {
+    
 }

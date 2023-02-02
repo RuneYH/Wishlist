@@ -14,7 +14,7 @@ public class WishController {
     @Autowired
     private WishRepo repo;
 
-    @GetMapping("/") // Wishlist
+    @GetMapping("/uwish/") // Wishlist
     public String wishes(Model model, @RequestParam(value="page", required=false, defaultValue="1") int page) {
 
         List<Wish> wishes = getPage(page-1, PAGE_SIZE);
@@ -30,7 +30,7 @@ public class WishController {
         return "wishes";
     }
 
-    @GetMapping("/wish/{page}/{id}")
+    @GetMapping("/uwish/wish/{page}/{id}")
     public String wish(Model model, @PathVariable Integer page, @PathVariable Long id) {
         Wish wish = repo.findById(id).orElse(null);
         model.addAttribute("page", page);
@@ -60,29 +60,28 @@ public class WishController {
         return (int)Math.ceil(new Double(wishes.size()) / pageSize);
     }
 
-    @GetMapping("/add")
+    @GetMapping("/uwish/add")
     public String add(Model model) {
         model.addAttribute("wish", new Wish());
-        return "form";
+        return "add_edit";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/uwish/save")
     public String set(@ModelAttribute Wish wish) {
         repo.save(wish);
-        return "redirect:/";
+        return "redirect:/uwish/";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/uwish/edit/{id}")
     public String edit(Model model, @PathVariable Long id) {
         Wish wish = repo.findById(id).get();
         model.addAttribute(wish);
-        return "form";
+        return "add_edit";
     }
 
-    // Delete function
-    @GetMapping("/delete/{id}")
+    @GetMapping("/uwish/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
         repo.deleteById(id);
-        return "redirect:/";
+        return "redirect:/uwish/";
     }
 }

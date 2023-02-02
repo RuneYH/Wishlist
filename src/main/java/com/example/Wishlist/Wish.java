@@ -26,7 +26,6 @@ public class Wish {
         this.price = price;
         this.link = link;
         this.img = img;
-
     }
 
     public Long getId() {
