@@ -2,5 +2,5 @@ INSERT INTO wish (name, description, price, link, img) VALUES ('Bike', '', 5999,
 INSERT INTO wish (name, description, price, link, img) VALUES ('Hat', '', 500, 'https://hatshop.dk/da/herrehatte/kangol/sixpence-flat-cap-kangol-seamless-wool-507-sort/', 'https://hatshop.dk/images/zoom/seamless507svart1.jpg');
 INSERT INTO wish (name, description, price, link, img) VALUES ('Dog', '', 8000, 'https://dyreportal.dk/listings/hunde/eurasier-hvalpe', null);
 
-INSERT INTO user (usn, psw) VALUES('Lisa', '123');
-INSERT INTO user (usn, psw) VALUES('Rune', 'asd');
+--INSERT INTO user (usn, psw) VALUES('Lisa', '123');
+--INSERT INTO user (usn, psw) VALUES('Rune', 'asd');

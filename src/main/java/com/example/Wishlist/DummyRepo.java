@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class Repo {
+public class DummyRepo {
 
 //    private List<User> users;
 //    private List<Wishlist> wishlists;
     private List<Wish> wishes;
 
-    public Repo() { // Constructor
+    public DummyRepo() { // Constructor
         wishes = new ArrayList<>(); // Holds all the wishes
 
         // Pre-fill dummy data can be removed later
