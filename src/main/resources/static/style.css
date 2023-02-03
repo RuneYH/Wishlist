@@ -7,7 +7,7 @@ body {
 }
 
 form {
-    background-color: grey;
+    background-color: transparent;
     padding: 20px;
     margin:30px;
 }
@@ -38,7 +38,7 @@ img {
 }
 
 .tableHeader td {
-    border-color: grey;
+    border-color: transparent;
 }
 
 a:hover {
