@@ -28,8 +28,8 @@ public class WisherController {
         model.addAttribute("wisher", new Wisher());
         return "signup";
     }
-    @PostMapping("/uwish/savewisher")
-    public String saveWisher(@ModelAttribute Wisher wisher) {
+    @PostMapping("/uwish/signupsave")
+    public String signupSave(@ModelAttribute Wisher wisher) {
         wisherRepo.save(wisher);
         return "redirect:/uwish/wishlist";
     }

@@ -13,14 +13,17 @@
 <h2>Add/Edit Wish</h2>
 
 <form action="/uwish/savewish" th:object="${wish}" method="POST">
-    <div>Wish: <input type="text" th:field="*{name}"/></div>
-    <div>Description: <input type="text" th:field="*{description}"/></div>
-    <div>Price: <input type="number" th:field="*{price}"/></div>
-    <div>Link: <input type="text" th:field="*{link}"/></div>
-    <!--<div>Image: <input type="text" th:field="*{img}"/></div>-->
-    <input th:if="${wish.id != null}" type="hidden" th:field="*{id}"/> <!--Adds a secret ID-->
-    <input type="submit" value="Save wish">
+    <div>Wish:        <input type="text" th:field="*{name}" placeholder="Enter your hearts desire"/></div>
+    <div>Description: <input type="text" th:field="*{description}" placeholder="Good, tell me more"/></div>
+    <div>Price:       <input type="number" th:field="*{price}" placeholder="Okay, how much does it cost?"/></div>
+    <div>Link:        <input type="text" th:field="*{link}" placeholder="Where is this awesome thing?"/></div>
+    <!--<div>Image:   <input type="text" th:field="*{img}" placeholder="So how does it look?"/></div>-->
+    <input th:if="${wish.id != null}" type="hidden" th:field="*{id}"/> <!-- Adds a secret ID -->
+    <input type="submit" value="Make your wish">
 </form>
+
+<!-- Navigate to wish -->
+<!-- Not implemented yet -->
 
 </body>
 </html>

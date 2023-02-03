@@ -10,15 +10,17 @@
 <h1>uWish</h1>
 <h2>Login</h2>
 
+<!-- Login form -->
 <form th:action="@{/uwish/login}" method="POST">
-    <div><label>Username: <input type="text" name="username"/> </label></div>
-    <div><label>Password: <input type="password" name="password"/> </label></div>
+    <div><label>Username: <input type="text" name="username" placeholder="Who's there?"/> </label></div>
+    <div><label>Password: <input type="password" name="password" placeholder="Tell me your secret"/> </label></div>
     <div><input type="submit" value="Login"/></div>
 </form>
 
+<!-- Login error message -->
 <div th:if="${param.error}">Invalid username or password</div>
 
-<!-- Navigate back to front page -->
+<!-- Navigate to front page -->
 <a href="/uwish">Back</a>
 
 </body>

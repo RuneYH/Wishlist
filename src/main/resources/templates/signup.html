@@ -10,14 +10,15 @@
 <h1>uWish</h1>
 <h2>Sign Up</h2>
 
-<form action="/uwish/savewisher" th:object="${wisher}" method="POST">
-    <div><label>Username: <input type="text" th:field="*{usn}"/></label></div>
-    <div><label>Password: <input type="password" th:field="*{psw}"/></label></div>
+<!-- Sign up form -->
+<form action="/uwish/signupsave" th:object="${wisher}" method="POST">
+    <div><label>Username: <input type="text" th:field="*{usn}" placeholder="Enter username"/></label></div>
+    <div><label>Password: <input type="password" th:field="*{psw}" placeholder="Enter password"/></label></div>
     <div><input th:if="${id != null}" type="hidden" th:field="*{id}"/></div>
     <div><input type="submit" value="Sign Up"></div>
 </form>
 
-<!-- Navigate back to front page -->
+<!-- Navigate to front page -->
 <a href="/uwish">Back</a>
 
 </body>

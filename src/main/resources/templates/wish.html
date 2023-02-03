@@ -12,34 +12,20 @@
 <h1>uWish</h1>
 <h2 th:text="${wish.getName}"></h2>
 
+<!-- Wish specs -->
 <table>
-    <tr>
-        <th></th>
-        <th th:text="${wish.getDescription}"></th>
-    </tr>
-    <tr>
-        <th></th>
-        <th th:text="${wish.getPrice} + '0 DKK'"></th>
-    </tr>
-    <tr>
-        <th></th>
-        <th><a th:href="${wish.link}">Buy here</a></th>
-    </tr>
-    <!--<tr>
-        <th></th>
-        <th th:text="${wish.getImg}"></th>
-    </tr>-->
+    <tr><th th:text="${wish.getDescription}"></th></tr>
+    <tr><th th:text="${wish.getPrice} + '0 DKK'"></th></tr>
+    <tr><th><a th:href="${wish.link}"><img class="icon" src="/images/link.png" alt="link"></a></th></tr>
+    <!--<tr><th th:text="${wish.getImg}"></th></tr>-->
 </table>
 
-<div>
-    <p><a th:href="'/uwish/editwish/' + ${wish.getId}">Edit</a></p>
-</div>
-<div>
-    <p><a th:href="'/uwish/deletewish/' + ${wish.getId}">Delete</a></p>
-</div>
-<div>
-    <p><a th:href="'/uwish/wishlist?page=' + ${page}">Back to wishlist</a></p>
-</div>
+<!-- Edit/Delete wish -->
+<div><p><a th:href="'/uwish/editwish/' + ${wish.getId}"><img class="icon" src="/images/edit.png" alt="edit"></a></p></div>
+<div><p><a th:href="'/uwish/deletewish/' + ${wish.getId}"><img class="icon" src="/images/delete.png" alt="delete"></a></p></div>
+
+<!-- Navigate to wishlist -->
+<div><p><a th:href="'/uwish/wishlist?page=' + ${page}">Back to wishlist</a></p></div>
 
 </body>
 </html>
