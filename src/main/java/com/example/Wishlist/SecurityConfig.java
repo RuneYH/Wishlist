@@ -14,9 +14,6 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private WisherRepo wisherRepo;
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
